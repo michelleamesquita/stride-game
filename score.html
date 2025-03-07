@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Pontuação Final</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div class="screen">
+            <h1>🏆 Fim de Jogo!</h1>
+            <h2 id="finalScore"></h2>
+            <button class="btn" onclick="restartGame()">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("finalScore").innerText = `Sua pontuação final foi: ${localStorage.getItem("score")} pontos.`;
+
+        function restartGame() {
+            localStorage.clear();
+            window.location.href = "index.html"; // Voltar para a tela inicial
+        }
+    </script>
+</body>
+</html>

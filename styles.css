@@ -1,0 +1,618 @@
+* {
+    
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a1a2e;
+    color: #e6e6e6;
+    text-align: center;
+}
+
+#game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.screen {
+    background-color: #16213e;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.options-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    background-color: #4361ee;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #3a56d4;
+    transform: translateY(-2px);
+}
+
+.avatar-display {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 15px;
+    border: 2px solid #4cc9f0;
+    border-radius: 10px;
+    background-color: #0f3460;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+input[type="text"]::placeholder {
+    color: #b0c7e4;
+}
+
+input[type="text"]:focus {
+    border-color: #f72585;
+    box-shadow: 0 0 10px #f72585;
+}
+
+.avatar-selection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+    border-radius: 50%;
+    border: 5px solid #f72585;
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #f72585;
+}
+
+/* Estilização dos escudos */
+#shields {
+    font-size: 2.5rem;  /* Escudos maiores */
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* Estilização do texto "Escudos:" */
+.player-info p {
+    font-size: 1.2rem;
+    color: #f72585;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* BOTÕES */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+#nextButton,
+#scoreButton {
+    background-color: #a556ef;
+    padding: 10px 15px; /* Reduz um pouco o padding para ajustar o espaço interno */
+    font-size: 1rem; /* Diminui levemente o tamanho do texto */
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px; /* Mantém um leve arredondamento */
+    width: 140px; /* Define um tamanho menor para o botão */
+    max-width: 100%;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s;
+    text-align: center;
+    white-space: normal; /* Permite a quebra de linha */
+    word-wrap: break-word; /* Garante que o texto se ajuste */
+    line-height: 1.2; /* Ajusta o espaçamento do texto */
+    display: flex;
+    flex-direction: column; /* Garante que o texto quebre naturalmente */
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreButton:hover {
+    background-color: #930cc0;
+    transform: translateY(-2px);
+}
+
+#scoreButton {
+    background-color: #5bc7e5 !important; /* Roxo */
+}
+
+#scoreButton:hover {
+    background-color: #1981dc !important; /* Roxo mais escuro ao passar o mouse */
+}
+
+
+
+#nextButton {
+    background-color: #4CAF50;
+}
+
+#nextButton:hover {
+    background-color: #45a049;
+}
+
+#scoreButton {
+    background-color: #f72585;
+}
+
+#scoreButton:hover {
+    background-color: #e61a5f;
+}
+
+/* POPUP STRIDE */
+#popup-stride {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent; /* Fundo transparente */
+    color: black; /* Cor do texto */
+    padding: 0; /* Remover padding */
+    border: none; /* Remover contorno */
+    z-index: 1000;
+    width: 80%; /* Largura ajustada */
+    max-width: 450px; /* Largura máxima ajustada */
+    display: none; /* Escondido por padrão */
+    /* animation: fadeIn 0.3s ease-in-out; Animação de entrada */
+}
+
+
+/* Conteúdo do popup */
+.stride-content {
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    border-radius: 12px; /* Bordas arredondadas */
+    padding: 25px; /* Padding para o conteúdo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra leve para destacar */
+}
+
+/* Título do popup */
+#popup-stride h2 {
+    color: #f72585; /* Cor do título */
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+/* Texto da categoria STRIDE */
+#popup-stride p {
+    font-size: 1.2rem;
+    color: #4cc9f0; /* Cor do texto da categoria */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Botão de avançar */
+#popup-stride button {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f72585; /* Cor do botão */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 150px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+#popup-stride button:hover {
+    background: #e61a5f; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilo da descrição */
+.stride-description {
+    font-size: 0.9rem; /* Tamanho da descrição */
+    color: #4cc9f0; /* Cor do texto da descrição */
+    margin-top: 5px; /* Espaçamento acima da descrição */
+}
+
+/* Esconde o popup ao carregar */
+.popup.hidden {
+    display: none !important;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.navigation-buttons {
+    margin-top: 20px;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.stride-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.stride-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 80%;
+    max-width: 450px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.stride-content h2 {
+    color: #f72585;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.stride-content p {
+    font-size: 1.2rem;
+    color: #4cc9f0;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.stride-content button {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f72585;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 150px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.stride-content button:hover {
+    background: #e61a5f;
+}
+
+/* Estilo para o container do input */
+.name-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo do input com erro */
+#playerName.error {
+    border-color: #f72585;
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Mensagem de erro estilizada */
+.error-message {
+    color: #f72585;
+    font-size: 0.9rem;
+    margin-top: 8px;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Animações */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .stride-content {
+        width: 85%;
+        padding: 20px;
+    }
+    
+    .stride-content h3 {
+        font-size: 1.2em;
+    }
+    
+    .stride-content p {
+        font-size: 1.4em;
+    }
+}
+
+/* ESTILO DA TELA DE EXPLICAÇÃO */
+.explanation-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    border-radius: 12px; /* Bordas arredondadas */
+    padding: 25px; /* Padding para o conteúdo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra leve para destacar */
+    width: 80%; /* Largura ajustada */
+    max-width: 450px; /* Largura máxima ajustada */
+    margin: auto; /* Centralizar na tela */
+    text-align: center; /* Centralizar texto */
+}
+
+.explanation-screen h2 {
+    color: #f72585; /* Cor do título */
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.explanation-screen p {
+    font-size: 1.2rem;
+    color: #333; /* Cor do texto */
+    margin-bottom: 15px;
+}
+
+.explanation-screen ul {
+    list-style-type: none; /* Remover marcadores da lista */
+    padding: 0; /* Remover padding */
+}
+
+.explanation-screen li {
+    font-size: 1.1rem;
+    color: #4cc9f0; /* Cor do texto da lista */
+    margin: 5px 0; /* Espaçamento entre itens da lista */
+}
+
+.explanation-screen button {
+    margin-top: 15px;
+    padding: 12px;
+    background: #f72585; /* Cor do botão */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 150px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.explanation-screen button:hover {
+    background: #e61a5f; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilização da tela de explicação */
+#game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.screen {
+    background-color: #16213e;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.explanation-text {
+    font-size: 1.3rem;
+    color: #4cc9f0;
+    margin-bottom: 15px;
+}
+
+.explanation-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #e6e6e6;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+}
+
+.explanation-list li {
+    background: rgba(76, 201, 240, 0.1);
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Ajuste para o botão */
+.btn {
+    background-color: #f72585;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #e61a5f;
+    transform: translateY(-2px);
+}
+
+.name-input-container {
+    display: flex;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: center;
+    gap: 10px; /* Espaço entre input e botão */
+    margin-top: 20px; /* Ajuste para abaixar o input */
+}
+
+.name-error {
+    color: #f72585;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/* Ajuste para centralizar corretamente */
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    border: 2px solid #4cc9f0;
+    border-radius: 10px;
+    background-color: #0f3460;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    outline: none;
+}
+
+/* Animação de erro */
+.error {
+    border-color: #f72585 !important;
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+
+/* Remova qualquer margem global */
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Alinha input e botão corretamente */
+.name-input-container {
+    display: flex;
+    align-items: center; /* Garante que fiquem na mesma altura */
+    justify-content: center; /* Centraliza na horizontal */
+    gap: 10px; /* Espaço entre input e botão */
+    margin-top: 20px; /* Ajuste de altura */
+    width: 100%;
+}
+
+/* Define mesma altura para input e botão */
+input[type="text"] {
+    width: 60%;
+    padding: 12px;
+    border: 2px solid #4cc9f0;
+    border-radius: 10px;
+    background-color: #0f3460;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    outline: none;
+    height: 50px; /* Mantém a altura uniforme */
+}
+
+/* Botão com mesma altura do input */
+.btn {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    height: 50px; /* Igual ao input */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}

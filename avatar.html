@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Escolha seu Avatar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div class="screen">
+            <h1>Escolha seu Avatar</h1>
+            <div class="avatar-selection">
+                <button class="avatar" onclick="selectAvatar('🐬')">🐬</button>
+                <button class="avatar" onclick="selectAvatar('👾')">👾</button>
+                <button class="avatar" onclick="selectAvatar('🤖')">🤖</button>
+                <button class="avatar" onclick="selectAvatar('👩‍💻')">👩‍💻</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectAvatar(emoji) {
+            localStorage.setItem("avatar", emoji);
+            localStorage.setItem("challengeId", 1);
+            localStorage.setItem("score", 0);
+            localStorage.setItem("shields", 3);
+
+            console.log("✅ Avatar selecionado:", emoji);
+            console.log("🔄 Redirecionando para game.html...");
+
+            // Redireciona para game.html, onde o primeiro desafio será carregado
+            window.location.href = "game.html";
+        }
+    </script>
+</body>
+</html>

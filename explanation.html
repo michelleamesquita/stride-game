@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Explicação do Jogo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div class="screen">
+            <h1>Como Jogar</h1>
+            <p class="explanation-text">
+                Prepare-se para os desafios! Veja como funciona:
+            </p>
+            <ul class="explanation-list">
+                <li>🛡️ Escolha seu avatar e entre no jogo.</li>
+                <li>🎯 Responda corretamente para ganhar pontos.</li>
+                <li>⚔️ Se errar, perderá um escudo!</li>
+                <li>🏆 No final, veja sua pontuação total!</li>
+            </ul>
+            <button class="btn" onclick="startGame()">Começar o Jogo</button>
+        </div>
+    </div>
+
+    <script>
+        function startGame() {
+            window.location.href = "avatar.html";
+        }
+    </script>
+</body>
+</html>

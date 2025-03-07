@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "category": "Spoofing",
+    "scenario": "Um invasor pode tentar credenciais uma a uma sem restrições.",
+    "options": [
+        "Apenas logar o erro",
+        "Enviar email após cada tentativa",     
+        "Bloqueio de conta após tentativas falhas",
+        "Nenhuma proteção"
+    ],
+    "correct_control": "Bloqueio de conta após tentativas falhas",
+    "explanation": "Implementar um limite de tentativas e bloqueio reduz ataques de força bruta.",
+    "stride_category": "Spoofing"
+},
+{
+    "id": 2,
+    "category": "Tampering",
+    "scenario": "O invasor pode modificar seu sistema de build e produzir versões assinadas.",
+    "options": [
+        "Backup manual do código",
+        "Apenas documentar as mudanças",
+        "Código aberto sem proteção",
+        "Assinatura de código e CI/CD seguro"
+    ],
+    "correct_control": "Assinatura de código e CI/CD seguro",
+    "explanation": "Implementar assinatura de código e CI/CD seguro evita builds maliciosas.",
+    "stride_category": "Tampering"
+},
+{
+    "id": 3,
+    "category": "Repudiation",
+    "scenario": "Usuários podem negar ações realizadas no sistema sem rastros.",
+    "options": [
+        "Registrar apenas erros críticos",
+        "Implementar logs de auditoria seguros",
+        "Confiar na palavra do usuário",
+        "Fazer backup dos logs localmente"
+    ],
+    "correct_control": "Implementar logs de auditoria seguros",
+    "explanation": "Logs de auditoria seguros garantem não-repúdio das ações dos usuários.",
+    "stride_category": "Repudiation"
+},
+{
+    "id": 4,
+    "category": "Information Disclosure",
+    "scenario": "Dados sensíveis são transmitidos em texto claro pela rede.",
+    "options": [
+        "Criar política de uso aceitável",
+        "Não fazer nada pois é rede interna",
+        "Usar apenas HTTPS",
+        "Implementar criptografia fim-a-fim"
+    ],
+    "correct_control": "Implementar criptografia fim-a-fim",
+    "explanation": "Criptografia fim-a-fim protege dados sensíveis durante toda a transmissão.",
+    "stride_category": "Information Disclosure"
+},
+{
+    "id": 5,
+    "category": "Denial of Service",
+    "scenario": "Sistema pode ficar indisponível por sobrecarga de requisições.",
+    "options": [
+        "Criar página de manutenção",
+        "Bloquear IPs manualmente",
+        "Implementar rate limiting e escalabilidade",
+        "Aumentar apenas os recursos de hardware"
+    ],
+    "correct_control": "Implementar rate limiting e escalabilidade",
+    "explanation": "Rate limiting e escalabilidade protegem contra ataques de negação de serviço.",
+    "stride_category": "Denial of Service"
+},
+{
+    "id": 6,
+    "category": "Elevation of Privilege",
+    "scenario": "Usuários podem acessar funcionalidades além de seu nível de permissão.",
+    "options": [
+        "Revisar logs periodicamente",
+        "Treinar usuários sobre segurança",
+        "Implementar controle de acesso baseado em papéis",
+        "Confiar no front-end para controle"
+    ],
+    "correct_control": "Implementar controle de acesso baseado em papéis",
+    "explanation": "RBAC garante que usuários só acessem recursos autorizados.",
+    "stride_category": "Elevation of Privilege"
+}
+]

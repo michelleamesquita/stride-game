@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>STRIDE Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div class="screen">
+            <h1>Bem-vindo ao STRIDE Game</h1>
+            <div class="name-input-container">
+                <input type="text" id="playerName" placeholder="Digite seu nome">
+                <button class="btn" onclick="startGame()">Começar</button>
+            </div>
+            <div id="nameError" class="name-error"></div> <!-- Mensagem de erro aparece aqui -->
+        </div>
+    </div>
+
+    <script>
+        function startGame() {
+            let nameInput = document.getElementById("playerName");
+            let errorDiv = document.getElementById("nameError");
+
+            if (nameInput.value.trim() !== "") {
+                localStorage.setItem("playerName", nameInput.value.trim());
+                window.location.href = "explanation.html";
+            } else {
+                errorDiv.textContent = "Digite seu nome para começar!";
+                errorDiv.style.display = "block"; // Exibe a mensagem de erro
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>STRIDE Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div class="screen">
+            <h1>STRIDE Game</h1>
+            <div class="game-header">
+                <div class="player-info">
+                    <div class="avatar-display" id="playerAvatar"></div>
+                    <h2 id="playerNameDisplay"></h2>
+                    <p>Escudos:</p>
+                    <div id="shields">🛡️🛡️🛡️</div>
+                </div>
+            </div>
+            <h3 id="challengeText"></h3>
+            <div class="options-grid" id="options"></div>
+            <p id="result"></p>
+
+            <div id="navigationButtons"></div>
+            
+            <!-- Popup do STRIDE simplificado -->
+            <div id="popup-stride" class="stride-popup" style="display: none;">
+                <div class="stride-content">
+                    <h2>Categoria STRIDE</h2>
+                    <p id="strideCategory"></p>
+                    <p id="strideDescription" class="stride-description"></p>
+                    <button onclick="nextStep()">Fechar</button>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button id="nextButton" class="btn hidden" onclick="nextStep()">Avançar</button>
+                <button id="scoreButton" class="btn btn-score hidden" onclick="viewScore()">Pontuação Final</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
