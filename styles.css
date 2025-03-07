@@ -616,3 +616,71 @@ input[type="text"] {
     cursor: pointer;
     font-weight: bold;
 }
+
+/* 🔹 Ajuste para telas menores */
+@media (max-width: 768px) {
+    #game-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .screen {
+        padding: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .options-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .avatar {
+        width: 90px;
+        height: 90px;
+        font-size: 2.5rem;
+    }
+
+    #shields {
+        font-size: 2rem;
+    }
+}
+
+/* 🔹 Ajuste para telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    input[type="text"] {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .stride-content {
+        width: 90%;
+        font-size: 14px;
+    }
+}
+
