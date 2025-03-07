@@ -617,59 +617,58 @@ input[type="text"] {
     font-weight: bold;
 }
 
+/* 🔹 Ajuste global para evitar que o conteúdo fique muito pequeno no celular */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* 🔹 Garantindo que o `game-container` se ajuste corretamente */
+#game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* 🔹 Garante centralização */
+}
+
 /* 🔹 Ajuste para telas menores */
 @media (max-width: 768px) {
     #game-container {
-        width: 95%;
+        width: 90%;
         padding: 15px;
     }
 
     .screen {
-        padding: 20px;
-    }
-
-    .btn {
-        width: 100%;
         padding: 15px;
-        font-size: 1rem;
-    }
-
-    input[type="text"] {
-        width: 100%;
-        font-size: 1rem;
-        padding: 12px;
+        width: 100%; /* 🔹 Agora ocupa toda a largura disponível */
     }
 
     .options-grid {
         flex-direction: column;
+        width: 100%;
         gap: 10px;
     }
 
-    .avatar {
-        width: 90px;
-        height: 90px;
-        font-size: 2.5rem;
-    }
-
-    #shields {
-        font-size: 2rem;
-    }
-}
-
-/* 🔹 Ajuste para telas menores que 480px (celulares pequenos) */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 22px;
-    }
-
     .btn {
+        width: 100%;
+        font-size: 18px;
+        padding: 15px;
+        text-align: center;
+    }
+
+    input[type="text"] {
+        width: 100%;
         font-size: 16px;
         padding: 12px;
     }
 
-    input[type="text"] {
-        font-size: 16px;
-        padding: 10px;
+    .avatar-selection {
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     .avatar {
@@ -678,9 +677,43 @@ input[type="text"] {
         font-size: 2rem;
     }
 
+    #shields {
+        font-size: 2rem;
+    }
+
+    /* 🔹 Ajuste do pop-up para não ficar gigante no celular */
     .stride-content {
         width: 90%;
+        padding: 20px;
         font-size: 14px;
     }
 }
 
+/* 🔹 Ajuste para celulares muito pequenos (até 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+    }
+
+    .stride-content {
+        width: 95%;
+        padding: 15px;
+        font-size: 14px;
+    }
+}
