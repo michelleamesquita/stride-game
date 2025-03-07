@@ -19,6 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .screen {
@@ -468,16 +469,7 @@ input[type="text"]:focus {
     background: #e61a5f; /* Cor do botão ao passar o mouse */
 }
 
-/* Estilização da tela de explicação */
-#game-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 .screen {
     background-color: #16213e;
@@ -615,24 +607,6 @@ input[type="text"] {
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-}
-
-/* 🔹 Ajuste global para evitar que o conteúdo fique muito pequeno no celular */
-html, body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-/* 🔹 Garantindo que o `game-container` se ajuste corretamente */
-#game-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* 🔹 Garante centralização */
 }
 
 /* 🔹 Ajuste para telas menores */
